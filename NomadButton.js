@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, View, StyleSheet } from 'react-native';
 
-export default function NomadButton({ title, onPress }) {
+export default function({ title, onPress }) {
     return (
         <View style={styles.container}>
             <Button style={styles.button}
