@@ -1,12 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
-export default function({ title, onPress }) {
+export default function({ style, text, onPress, disabled }) {
     return (
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.button}
-                              onPress={onPress}>
-              <Text style={styles.text}>{title}</Text>
+        <View style={style}>
+            <TouchableOpacity style={disabled ? styles.buttonDisabled : styles.button}
+                              onPress={disabled ? () => {} : onPress}>
+              <Text style={styles.text}>{text}</Text>
             </TouchableOpacity>
         </View>
     )
@@ -14,9 +14,6 @@ export default function({ title, onPress }) {
 
 
 const styles = StyleSheet.create({
-  container: {
-    width: 250
-  },
   button: {
     backgroundColor: "#474747",
     borderRadius: 10,
@@ -26,6 +23,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: 6,
     paddingBottom: 6,
+  },
+  buttonDisabled: {
+      backgroundColor: "grey",
   },
   text: {
     textAlign: "center",
